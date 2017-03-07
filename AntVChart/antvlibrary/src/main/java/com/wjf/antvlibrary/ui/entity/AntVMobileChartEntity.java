@@ -1,4 +1,4 @@
-package com.wjf.antvchart.ui.entity;
+package com.wjf.antvlibrary.ui.entity;
 
 /**
  * Created by weijianfeng on 2017/3/7.

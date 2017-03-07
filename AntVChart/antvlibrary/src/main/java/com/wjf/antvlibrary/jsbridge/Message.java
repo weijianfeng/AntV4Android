@@ -1,4 +1,4 @@
-package com.wjf.antvchart.jsbridge;
+package com.wjf.antvlibrary.jsbridge;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AntVChart.iml" filepath="$PROJECT_DIR$/AntVChart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/antvlibrary/antvlibrary.iml" filepath="$PROJECT_DIR$/antvlibrary/antvlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

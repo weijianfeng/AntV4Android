@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context="com.wjf.antvchart.MainActivity">
 
-    <com.wjf.antvchart.ui.AntVMobileChart
+    <com.wjf.antvlibrary.ui.AntVMobileChart
         android:id="@+id/chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

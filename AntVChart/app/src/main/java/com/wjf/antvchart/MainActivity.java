@@ -2,7 +2,9 @@ package com.wjf.antvchart;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.wjf.antvchart.ui.AntVMobileChart;
+
+
+import com.wjf.antvlibrary.ui.AntVMobileChart;
 
 import java.util.ArrayList;
 import java.util.List;

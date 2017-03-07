@@ -1,11 +1,11 @@
-package com.wjf.antvchart.webview;
+package com.wjf.antvlibrary.webview;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
 
-import com.wjf.antvchart.jsbridge.BridgeWebView;
+import com.wjf.antvlibrary.jsbridge.BridgeWebView;
+
 
 /**
  * Created by weijianfeng on 2017/3/7.

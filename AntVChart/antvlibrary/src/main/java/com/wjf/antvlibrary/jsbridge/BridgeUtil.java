@@ -1,7 +1,6 @@
-package com.wjf.antvchart.jsbridge;
+package com.wjf.antvlibrary.jsbridge;
 
 import android.content.Context;
-import android.util.Base64;
 import android.webkit.WebView;
 
 import java.io.BufferedReader;

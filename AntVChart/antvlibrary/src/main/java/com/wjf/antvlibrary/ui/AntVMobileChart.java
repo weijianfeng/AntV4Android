@@ -1,16 +1,14 @@
-package com.wjf.antvchart.ui;
+package com.wjf.antvlibrary.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.google.gson.Gson;
-import com.wjf.antvchart.jsbridge.CallBackFunction;
-import com.wjf.antvchart.jsbridge.DefaultHandler;
-import com.wjf.antvchart.ui.entity.AntVMobileChartEntity;
-import com.wjf.antvchart.webview.AntVWebView;
+import com.wjf.antvlibrary.jsbridge.CallBackFunction;
+import com.wjf.antvlibrary.jsbridge.DefaultHandler;
+import com.wjf.antvlibrary.ui.entity.AntVMobileChartEntity;
+import com.wjf.antvlibrary.webview.AntVWebView;
 
 import java.util.ArrayList;
 import java.util.List;

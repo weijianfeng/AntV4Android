@@ -1,4 +1,4 @@
-package com.wjf.antvchart.jsbridge;
+package com.wjf.antvlibrary.jsbridge;
 
 public class DefaultHandler implements BridgeHandler{
 
