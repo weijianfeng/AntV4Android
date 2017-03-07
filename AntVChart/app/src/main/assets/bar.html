@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title>柱状图</title>
+     <script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.13/index.js"></script>
+   </head>
+   <body>
+       <div style="width:416px;height:218px;margin:0 auto">
+           <canvas id="c1" style="width:416px;height:218px;"></canvas>
+       </div>
+<script>
+
+var data;
+
+function connectWebViewJavascriptBridge(callback) {
+    if (window.WebViewJavascriptBridge) {
+        callback(WebViewJavascriptBridge)
+    } else {
+        document.addEventListener(
+            'WebViewJavascriptBridgeReady'
+            , function() {
+                callback(WebViewJavascriptBridge)
+            },
+            false
+        );
+    }
+}
+
+connectWebViewJavascriptBridge(function(bridge) {
+    bridge.init(function(message, responseCallback) {
+        console.log('JS got a message', message);
+        var data = {
+            'Javascript Responds': '测试中文!'
+        };
+        console.log('JS responding with', data);
+        responseCallback(data);
+    });
+
+    bridge.registerHandler("functionInJs", function(datas, responseCallback) {
+        <!--document.getElementById("show").innerHTML = ("data from Java: = " + datas);-->
+
+        <!--data = [{"x":"a","y":10},{"x":"b","y":20},{"x":"c","y":30}];-->
+        
+        data = JSON.parse(datas);
+
+        draw();
+
+        var responseData = "Javascript Says Right back hehe!";
+        responseCallback(responseData);
+    });
+})
+
+function draw() {
+  GM.Global.pixelRatio = 2;
+
+  var chart = new GM.Chart({
+  id: 'c1'
+  });
+
+  chart.source(data, {
+   tem: {
+       tickCount: 5
+   }
+  });
+
+  //配置刻度文字大小，供PC端显示用(移动端可以使用默认值20px)
+  chart.axis('x', {
+   label:{
+       fontSize: 14
+   },
+  grid: null
+  });
+
+  chart.axis('y', {
+   label:{
+       fontSize: 14
+   }
+  });
+
+  chart.interval().position('x*y').color('x');
+  chart.render();
+}
+
+</script>
+   </body>
+ </html>
