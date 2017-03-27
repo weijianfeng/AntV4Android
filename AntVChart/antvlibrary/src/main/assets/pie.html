@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>饼图</title>
+    <script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.14/index.js"></script>
+</head>
+<body>
+<div style="width:416px;height:218px;margin:0 auto">
+    <canvas id="c1" style="width:416px;height:218px;"></canvas>
+</div>
+<script>
+      GM.Global.pixelRatio = 2;
+      var  data = [
+        {a: '1', b: 0.3, c: '1'},
+        {a: '1', b: 0.3, c: '2'},
+        {a: '1', b: 0.4, c: '3'}
+      ];
+      var chart = new GM.Chart({
+        id: 'c1'
+      });
+      chart.source(data);
+      chart.coord('polar', {
+        transposed: true,
+        inner: 0
+      });
+      chart.axis(false);
+      chart.intervalStack().position('a*b').color('c');
+      chart.animate().wavec();
+      chart.render();
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″ />
+    <title>折线图</title>
+    <script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.14/index.js"></script>
+    <script>
+        scaleW = window.innerWidth / 320;
+        scaleH = window.innerHeight / 480;
+        var resizes = document.querySelectorAll('.resize');
+        for (var j = 0; j < resizes.length; j++) {
+          resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
+          resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
+          resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
+          resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
+        }
+        console.log('resize' + window.innerWidth + window.innerHeight);
+     </script>
+</head>
+<body>
+<div >
+    <canvas class="resize" id="c1"
+            style="width:100%; height:100%; margin:0 auto;"></canvas>
+</div>
+<script>
+  GM.Global.pixelRatio = 2;
+  var Util = GM.Util;
+  var data = [
+    {"time": '2016-08-08 00:00:00',"tem": 10},
+    {"time": '2016-08-08 00:10:00',"tem": 22},
+    {"time": '2016-08-08 00:30:00',"tem": 20},
+    {"time": '2016-08-09 00:35:00',"tem": 26},
+    {"time": '2016-08-09 01:00:00',"tem": 20},
+    {"time": '2016-08-09 01:20:00',"tem": 26},
+    {"time": '2016-08-10 01:40:00',"tem": 28},
+    {"time": '2016-08-10 02:00:00',"tem": 20},
+    {"time": '2016-08-10 02:20:00',"tem": 28}
+  ];
+
+  var chart = new GM.Chart({
+    id: 'c1'
+  });
+
+  var defs = {
+    time: {
+      type: 'timeCat',
+      mask: 'mm／dd',
+      tickCount: 3,
+      range:[0,1]
+    },
+    tem: {
+      tickCount: 5,
+      min: 0
+    }
+  };
+
+  //配置刻度文字大小，供PC端显示用(移动端可以使用默认值20px)
+  chart.axis('tem', {
+      label: {
+          fontSize: 14
+      }
+  });
+  chart.axis('time', {
+      label: {
+          fontSize: 14
+      }
+  });
+
+  chart.source(data, defs);
+  chart.line().position('time*tem');
+  <!--chart.animate().waveh();-->
+  chart.render();
+
+</script>
+
+</body>
+</html>

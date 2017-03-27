@@ -3,9 +3,6 @@ package com.wjf.antvlibrary.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsoluteLayout;
 
 import com.google.gson.Gson;
 import com.wjf.antvlibrary.jsbridge.CallBackFunction;
@@ -20,41 +17,41 @@ import java.util.List;
  * Created by weijianfeng on 2017/3/7.
  */
 
-public class AntVMobileChart extends AntVWebView {
+public class AntVMobileBar extends AntVWebView {
 
     private List<String> AxisX = new ArrayList<>();
     private List<Integer> AxisY = new ArrayList<>();
     private int Color = 0;
     private String data;
 
-    public AntVMobileChart(Context context) {
+    public AntVMobileBar(Context context) {
         super(context);
     }
 
-    public AntVMobileChart(Context context, AttributeSet attrs) {
+    public AntVMobileBar(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AntVMobileChart(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AntVMobileBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public AntVMobileChart setX(List<String> axisX) {
+    public AntVMobileBar setX(List<String> axisX) {
         this.AxisX = axisX;
         return this;
     }
 
-    public AntVMobileChart setY(List<Integer> axisY) {
+    public AntVMobileBar setY(List<Integer> axisY) {
         this.AxisY = axisY;
         return this;
     }
 
-    public AntVMobileChart setData(String data) {
+    public AntVMobileBar setData(String data) {
         this.data = data;
         return this;
     }
 
-    public AntVMobileChart draw () {
+    public AntVMobileBar draw () {
 
         List<AntVMobileChartEntity> list = new ArrayList<>();
         int size = AxisX.size();
