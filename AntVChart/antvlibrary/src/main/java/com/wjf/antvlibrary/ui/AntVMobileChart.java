@@ -3,6 +3,9 @@ package com.wjf.antvlibrary.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
 
 import com.google.gson.Gson;
 import com.wjf.antvlibrary.jsbridge.CallBackFunction;
@@ -70,6 +73,7 @@ public class AntVMobileChart extends AntVWebView {
         });
 
         this.loadUrl("file:///android_asset/bar.html");
+
         return this;
     }
 }

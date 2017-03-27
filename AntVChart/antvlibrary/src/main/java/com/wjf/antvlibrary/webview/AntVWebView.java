@@ -33,7 +33,7 @@ public class AntVWebView extends BridgeWebView {
 
         webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         webSettings.setAppCacheEnabled(true);
-//        webSettings.setUseWideViewPort(true);
+        webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setLoadsImagesAutomatically(true);
 
