@@ -2,29 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name=”viewport” content=”width=device-width, initial-scale=1″ />
     <title>折线图</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
     <script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.14/index.js"></script>
-    <script>
-        scaleW = window.innerWidth / 320;
-        scaleH = window.innerHeight / 480;
-        var resizes = document.querySelectorAll('.resize');
-        for (var j = 0; j < resizes.length; j++) {
-          resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
-          resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
-          resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
-          resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
-        }
-        console.log('resize' + window.innerWidth + window.innerHeight);
-     </script>
 </head>
 <body>
-<div >
-    <canvas class="resize" id="c1"
-            style="width:100%; height:100%; margin:0 auto;"></canvas>
+<div>
+    <canvas id="c1" style="margin:0 auto;"></canvas>
 </div>
 <script>
-  GM.Global.pixelRatio = 2;
+  (function (win, doc, undefined) {
+    var width = document.documentElement.clientWidth;
+    var height = document.documentElement.clientHeight;
+    var $canvas = doc.getElementById('c1');
+    $canvas.style.width = width + 'px';
+    $canvas.style.height = height + 'px';
+  })(window, document);
+
+</script>
+<script>
+
+  //GM.Global.pixelRatio = 2;
+  GM.Global.pixelRatio = window.devicePixelRatio || 1;
+
   var Util = GM.Util;
   var data = [
     {"time": '2016-08-08 00:00:00',"tem": 10},
@@ -69,8 +76,9 @@
 
   chart.source(data, defs);
   chart.line().position('time*tem');
-  <!--chart.animate().waveh();-->
+  chart.animate().waveh();
   chart.render();
+
 
 </script>
 
