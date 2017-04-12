@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         data.add("Bar Chart");
         data.add("Line Chart");
         data.add("Pie Chart");
+        data.add("**CustomBar Chart");
+        data.add("**MultiPie Chart");
 
         mListView = (ListView) findViewById(R.id.list);
         mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data));
@@ -43,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         Intent intent2 = new Intent(MainActivity.this, TestPieChart.class);
                         startActivity(intent2);
+                        break;
+                    case 3:
+                        Intent intent3 = new Intent(MainActivity.this, TestCustomBar.class);
+                        startActivity(intent3);
+                        break;
+                    case 4:
+                        Intent intent4 = new Intent(MainActivity.this, TestMultiPie.class);
+                        startActivity(intent4);
                         break;
                     default:
                         break;

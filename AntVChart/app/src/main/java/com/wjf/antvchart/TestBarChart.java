@@ -3,7 +3,7 @@ package com.wjf.antvchart;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.wjf.antvlibrary.ui.AntVMobileBar;
+import com.wjf.antvlibrary.ui.g2mobile.AntVMobileBar;
 
 import java.util.ArrayList;
 import java.util.List;

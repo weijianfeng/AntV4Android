@@ -1,4 +1,4 @@
-package com.wjf.antvlibrary.ui;
+package com.wjf.antvlibrary.ui.g2mobile;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,6 +7,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.wjf.antvlibrary.jsbridge.CallBackFunction;
 import com.wjf.antvlibrary.jsbridge.DefaultHandler;
+import com.wjf.antvlibrary.ui.AntVChartFunc;
 import com.wjf.antvlibrary.ui.entity.AntVMobileChartEntity;
 import com.wjf.antvlibrary.webview.AntVWebView;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * Created by weijianfeng on 2017/3/7.
  */
 
-public class AntVMobileBar extends AntVWebView implements AntVChartFunc{
+public class AntVMobileBar extends AntVWebView implements AntVChartFunc {
 
     private List<String> AxisX = new ArrayList<>();
     private List<Integer> AxisY = new ArrayList<>();
