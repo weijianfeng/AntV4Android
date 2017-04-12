@@ -25,60 +25,99 @@
     $canvas.style.width = width + 'px';
     $canvas.style.height = height + 'px';
   })(window, document);
-
 </script>
 <script>
+var data;
 
+function connectWebViewJavascriptBridge(callback) {
+    if (window.WebViewJavascriptBridge) {
+        callback(WebViewJavascriptBridge)
+    } else {
+        document.addEventListener(
+            'WebViewJavascriptBridgeReady'
+            , function() {
+                callback(WebViewJavascriptBridge)
+            },
+            false
+        );
+    }
+}
+
+connectWebViewJavascriptBridge(function(bridge) {
+    bridge.init(function(message, responseCallback) {
+        console.log('JS got a message', message);
+        var data = {
+            'Javascript Responds': '测试中文!'
+        };
+        console.log('JS responding with', data);
+        responseCallback(data);
+    });
+
+    bridge.registerHandler("functionInJs", function(datas, responseCallback) {
+        <!--document.getElementById("show").innerHTML = ("data from Java: = " + datas);-->
+
+        <!--data = [{"x":"a","y":10},{"x":"b","y":20},{"x":"c","y":30}];-->
+
+        data = JSON.parse(datas);
+
+        draw();
+
+        var responseData = "Javascript Says Right back hehe!";
+        responseCallback(responseData);
+    });
+})
+
+function draw() {
   //GM.Global.pixelRatio = 2;
   GM.Global.pixelRatio = window.devicePixelRatio || 1;
 
   var Util = GM.Util;
-  var data = [
-    {"time": '2016-08-08 00:00:00',"tem": 10},
-    {"time": '2016-08-08 00:10:00',"tem": 22},
-    {"time": '2016-08-08 00:30:00',"tem": 20},
-    {"time": '2016-08-09 00:35:00',"tem": 26},
-    {"time": '2016-08-09 01:00:00',"tem": 20},
-    {"time": '2016-08-09 01:20:00',"tem": 26},
-    {"time": '2016-08-10 01:40:00',"tem": 28},
-    {"time": '2016-08-10 02:00:00',"tem": 20},
-    {"time": '2016-08-10 02:20:00',"tem": 28}
-  ];
+  <!--var data = [-->
+    <!--{"time": '2016-08-08 00:00:00',"tem": 10},-->
+    <!--{"time": '2016-08-08 00:10:00',"tem": 22},-->
+    <!--{"time": '2016-08-08 00:30:00',"tem": 20},-->
+    <!--{"time": '2016-08-09 00:35:00',"tem": 26},-->
+    <!--{"time": '2016-08-09 01:00:00',"tem": 20},-->
+    <!--{"time": '2016-08-09 01:20:00',"tem": 26},-->
+    <!--{"time": '2016-08-10 01:40:00',"tem": 28},-->
+    <!--{"time": '2016-08-10 02:00:00',"tem": 20},-->
+    <!--{"time": '2016-08-10 02:20:00',"tem": 28}-->
+  <!--];-->
 
   var chart = new GM.Chart({
     id: 'c1'
   });
 
   var defs = {
-    time: {
+    x: {
       type: 'timeCat',
       mask: 'mm／dd',
       tickCount: 3,
       range:[0,1]
     },
-    tem: {
+    y: {
       tickCount: 5,
       min: 0
     }
   };
 
   //配置刻度文字大小，供PC端显示用(移动端可以使用默认值20px)
-  chart.axis('tem', {
+  chart.axis('y', {
       label: {
           fontSize: 14
       }
   });
-  chart.axis('time', {
+  chart.axis('x', {
       label: {
           fontSize: 14
       }
   });
 
   chart.source(data, defs);
-  chart.line().position('time*tem');
+  chart.line().position('x*y');
   chart.animate().waveh();
   chart.render();
-
+}
 
 </script>
 

@@ -3,12 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>饼图</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
     <script src="https://a.alipayobjects.com/g/datavis/g2-mobile-all/2.1.14/index.js"></script>
 </head>
 <body>
-<div style="width:416px;height:218px;margin:0 auto">
-    <canvas id="c1" style="width:416px;height:218px;"></canvas>
+<div>
+    <canvas id="c1" style="margin:0 auto;"></canvas>
 </div>
+<script>
+  (function (win, doc, undefined) {
+    var width = document.documentElement.clientWidth;
+    var height = document.documentElement.clientHeight;
+    var $canvas = doc.getElementById('c1');
+    $canvas.style.width = width + 'px';
+    $canvas.style.height = height + 'px';
+  })(window, document);
+</script>
 <script>
       GM.Global.pixelRatio = 2;
       var  data = [

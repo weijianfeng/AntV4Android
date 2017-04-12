@@ -17,9 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestBarChart"></activity>
+        <activity android:name=".TestBarChart"
+            android:screenOrientation="landscape"></activity>
         <activity android:name=".TestLineChart"
-                  android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".TestPieChart"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

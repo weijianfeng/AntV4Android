@@ -17,11 +17,10 @@ import java.util.List;
  * Created by weijianfeng on 2017/3/7.
  */
 
-public class AntVMobileBar extends AntVWebView {
+public class AntVMobileBar extends AntVWebView implements AntVChartFunc{
 
     private List<String> AxisX = new ArrayList<>();
     private List<Integer> AxisY = new ArrayList<>();
-    private int Color = 0;
     private String data;
 
     public AntVMobileBar(Context context) {
@@ -46,13 +45,14 @@ public class AntVMobileBar extends AntVWebView {
         return this;
     }
 
+    @Deprecated
     public AntVMobileBar setData(String data) {
         this.data = data;
         return this;
     }
 
-    public AntVMobileBar draw () {
-
+    @Override
+    public void draw () {
         List<AntVMobileChartEntity> list = new ArrayList<>();
         int size = AxisX.size();
         for (int i = 0; i < size; i++) {
@@ -70,7 +70,5 @@ public class AntVMobileBar extends AntVWebView {
         });
 
         this.loadUrl("file:///android_asset/bar.html");
-
-        return this;
     }
 }

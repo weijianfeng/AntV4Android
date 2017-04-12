@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent1);
                         break;
                     case 2:
+                        Intent intent2 = new Intent(MainActivity.this, TestPieChart.class);
+                        startActivity(intent2);
                         break;
                     default:
                         break;
